@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import EditData from "../editData";
 
 const TableView = (props) => {
   const { users, setUsersData, singleUser, setSingleUserData } = props;
+  let [i,setI] = useState(null);
 
   const deleteFunc = (index) => {
     let array = [...users];
@@ -10,12 +12,16 @@ const TableView = (props) => {
   };
 
   const editFunc = (index) => {
-    let array = [...users];
-
+    setI(index);
+    let obj = {...users[index]}
+    console.log(obj);
+    setSingleUserData(obj);
+    
   };
 
   return (
     <div>
+      {(i!=null)? (<EditData users={users} setUsersData={setUsersData} singleUser={singleUser} setSingleUserData={setSingleUserData} i={i} changeI={setI}/>) : null}
       <table border="1" width="100%">
         <tbody>
           <tr>
@@ -34,7 +40,7 @@ const TableView = (props) => {
                 <td>{item.gender}</td>
                 <td>{item.ocupation}</td>
                 <td>
-                  <button onClick={()=>editFunc(index)}>Edit</button>
+                  <button onClick={() => editFunc(index)}>Edit</button>
                 </td>
                 <td>
                   <button onClick={() => deleteFunc(index)}>Delete</button>

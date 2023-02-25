@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TableData = (props) => {
   const { users, setUsersData, singleUser, setSingleUserData } = props;
+  const navigate = useNavigate();
 
   const onChangeHandler = (event) => {
     setSingleUserData({
@@ -14,7 +16,7 @@ const TableData = (props) => {
     let array = [...users];
     array.push(singleUser);
     setUsersData(array);
-    console.log(users);
+    navigate('/');
   };
 
   return (
