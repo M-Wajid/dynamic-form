@@ -25,11 +25,10 @@ const TableView = (props) => {
           <tr>
             <td>Edit Data</td>
             <td>Delete Data</td>
-            {Object.keys(users)}
-            {/* <td>Name</td>
+            <td>Name</td>
             <td>Email</td>
             <td>Gender</td>
-            <td>Ocupation</td> */}
+            <td>Ocupation</td>
           </tr>
           {users.map((item, index) => {
             return (
@@ -41,6 +40,7 @@ const TableView = (props) => {
                   <button onClick={() => deleteFunc(index)}>Delete</button>
                 </td>
                 {Object.keys(item).map((key) => <td>{item[key]}</td>)}
+                
               </tr>
             );
           })}
