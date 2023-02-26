@@ -14,9 +14,7 @@ const TableView = (props) => {
   const editFunc = (index) => {
     setI(index);
     let obj = {...users[index]}
-    console.log(obj);
     setSingleUserData(obj);
-    
   };
 
   return (
@@ -25,26 +23,24 @@ const TableView = (props) => {
       <table border="1" width="100%">
         <tbody>
           <tr>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Gender</td>
-            <td>Ocupation</td>
             <td>Edit Data</td>
             <td>Delete Data</td>
+            {Object.keys(users)}
+            {/* <td>Name</td>
+            <td>Email</td>
+            <td>Gender</td>
+            <td>Ocupation</td> */}
           </tr>
           {users.map((item, index) => {
             return (
               <tr>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>{item.gender}</td>
-                <td>{item.ocupation}</td>
                 <td>
                   <button onClick={() => editFunc(index)}>Edit</button>
                 </td>
                 <td>
                   <button onClick={() => deleteFunc(index)}>Delete</button>
                 </td>
+                {Object.keys(item).map((key) => <td>{item[key]}</td>)}
               </tr>
             );
           })}
