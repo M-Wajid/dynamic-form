@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const TableData = (props) => {
+const AddData = (props) => {
   const { users, setUsersData, singleUser, setSingleUserData } = props;
   const navigate = useNavigate();
 
@@ -54,4 +54,4 @@ const TableData = (props) => {
   );
 };
 
-export default TableData;
+export default AddData;

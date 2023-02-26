@@ -1,11 +1,11 @@
 import React from 'react'
-import TableData from '../../components/tableData'
+import AddData from '../../components/addData'
 
 const FormPage = (props) => {
   const {users, setUsersData, singleUser, setSingleUserData} = props;
   return (
     <div>
-      <TableData users={users} setUsersData={setUsersData} singleUser={singleUser} setSingleUserData={setSingleUserData} />
+      <AddData users={users} setUsersData={setUsersData} singleUser={singleUser} setSingleUserData={setSingleUserData} />
     </div>
   )
 }
