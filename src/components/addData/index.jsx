@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AddField from "../addField";
 
 const AddData = (props) => {
   const { users, setUsersData, singleUser, setSingleUserData } = props;
+  const [flag, setFlag] = useState(false);
   const navigate = useNavigate();
 
   const onChangeHandler = (event) => {
@@ -17,7 +19,12 @@ const AddData = (props) => {
     array.push(singleUser);
     setUsersData(array);
     navigate('/');
+    setSingleUserData(null);
   };
+
+  const addFieldFunc = () => {
+    setFlag(true);
+  }
 
   return (
     <div>
@@ -49,6 +56,8 @@ const AddData = (props) => {
         autoComplete="off"
         onChange={onChangeHandler}
       />
+      {(flag) ? <AddField singleUser={singleUser} setSingleUserData={setSingleUserData} /> : null}
+      <button onClick={addFieldFunc}>addField</button>
       <button onClick={onClickHandler}>submit</button>
     </div>
   );

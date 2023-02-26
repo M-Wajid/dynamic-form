@@ -21,34 +21,9 @@ const EditData = (props) => {
   
     return (
       <div>
-        <input
-          name="name"
-          type="text"
-          defaultValue={users[i].name}
-          autoComplete="off"
-          onChange={onChangeHandler}
-        />
-        <input
-          name="email"
-          type="text"
-          defaultValue={users[i].email}
-          autoComplete="off"
-          onChange={onChangeHandler}
-        />
-        <input
-          name="gender"
-          type="text"
-          defaultValue={users[i].gender}
-          autoComplete="off"
-          onChange={onChangeHandler}
-        />
-        <input
-          name="ocupation"
-          type="text"
-          defaultValue={users[i].ocupation}
-          autoComplete="off"
-          onChange={onChangeHandler}
-        />
+        {Object.keys(users[i]).map((key) => (
+          <input name={key} type="text" defaultValue={users[i][key]} autoComplete="off" onChange={onChangeHandler}/>
+        ))}
         <button onClick={onClickHandler}>Update</button>
       </div>
     );
