@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import AddColumn from "../addColumn";
 import EditData from "../editData";
 
 const TableView = (props) => {
   const { users, setUsersData, singleUser, setSingleUserData } = props;
   let [i,setI] = useState(null);
+  const [flag2, setFlag2] = useState(false);
 
   const deleteFunc = (index) => {
     let array = [...users];
@@ -40,7 +42,9 @@ const TableView = (props) => {
                   <button onClick={() => deleteFunc(index)}>Delete</button>
                 </td>
                 {Object.keys(item).map((key) => <td>{item[key]}</td>)}
-                
+                {(flag2)? (<td><AddColumn users={users} setUsersData={setUsersData} singleUser={singleUser} setSingleUserData={setSingleUserData} index={index} settingFlag={setFlag2}/></td>) : (
+                  <td><button onClick={()=>setFlag2(true)}>Add Column</button></td>
+                )}
               </tr>
             );
           })}
